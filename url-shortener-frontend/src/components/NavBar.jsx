@@ -6,7 +6,7 @@ import { RxCross2 } from "react-icons/rx";
 const NavBar = () => {
 
   const navigate = useNavigate();
-  const { token, setToken } = useStoreContext();
+  const { token, setToken } = useStoreContext();//study this
   const path = useLocation().pathname;
   const [navBarOpen, setNavBarOpen] = useState(false);
 

@@ -7,7 +7,7 @@ const Footer = () => {
         <h2 className="text-3xl font-bold mb-2">
           TinyLink
         </h2>
-        <p>
+        <p className="text-center">
           Simplifying URL shortening for efficient sharing.
         </p>
         </div>
