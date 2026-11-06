@@ -17,7 +17,6 @@ public class RegisterRequest {
     @Email(message = "Enter a valid email id")
     private String email;
 
-    @NotEmpty(message = "Role is required")
     private Set<@NotBlank String> role;
 
     @NotBlank
