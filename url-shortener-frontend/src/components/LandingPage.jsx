@@ -1,5 +1,7 @@
-import Card from './Card'
+import Card from './Card';
+
 const LandingPage = () => {
+
   return (
     <div className='min-h-[calc(100vh-64px)] lg:px-14 sm:px-8 px-4'>
       <div className='flex flex-col lg:flex-row items-center justify-between gap-8 py-10'>

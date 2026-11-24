@@ -45,7 +45,9 @@ const NavBar = () => {
           </li>
           {token && (
             <li>
-              <Link to='/dashboard' className="px-2">
+              <Link to='/dashboard' className={`${
+                path === '/dashboard' ? "text-white font-semibold" : "text-gray-200"
+              } px-2`}>
                 Dashboard
               </Link>
             </li>
