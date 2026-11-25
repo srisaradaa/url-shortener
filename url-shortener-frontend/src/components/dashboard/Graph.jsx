@@ -7,7 +7,6 @@ import {
   Legend,
   Tooltip,
   Filler,
-  plugins,
 } from "chart.js";
 
 ChartJS.register(
