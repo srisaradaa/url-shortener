@@ -1,6 +1,7 @@
 package com.url.shortener.controller;
 
 import com.url.shortener.dto.ClickEventDTO;
+import com.url.shortener.dto.CreateShortUrlRequest;
 import com.url.shortener.dto.UrlMappingDTO;
 import com.url.shortener.entity.User;
 import com.url.shortener.service.UrlMappingService;
@@ -24,9 +25,9 @@ public class UrlMappingController {
 
     @PostMapping("/shorten")
     public ResponseEntity<UrlMappingDTO> createShortUrl(
-            @RequestBody String originalUrl, Principal principal) {
+            @RequestBody CreateShortUrlRequest request, Principal principal) {
         User user = userService.findByUsername(principal.getName());
-        UrlMappingDTO urlMapping = urlMappingService.createShortUrl(originalUrl, user);
+        UrlMappingDTO urlMapping = urlMappingService.createShortUrl(request.getOriginalUrl(), user);
         return ResponseEntity.ok(urlMapping);
     }
 

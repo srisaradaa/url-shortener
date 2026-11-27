@@ -2,10 +2,16 @@ import Graph from './Graph'
 import { useNavigate } from 'react-router-dom';
 import { useStoreContext } from '../../contextApi/ContextApi';
 import { useFetchTotalClicks } from '../../hooks/useQuery';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import ShortenPopup from './ShortenPopup';
 
 function DashboardLayout() {
+  const refetch = false;
   const { token } = useStoreContext();
+
+  const [shortenPopup, setShortenPopup] = useState(false);
+
+
   const navigate = useNavigate();
 
   const { isLoading: loader, data: totalClicks, isError } = useFetchTotalClicks(token);
@@ -33,10 +39,20 @@ function DashboardLayout() {
           <Graph graphData={totalClicks}></Graph>
         </div>
         <div className='sm:text-end text-center'>
-          <button className='bg-custom-gradient text-white rounded-md px-3 py-2'>Shorten a new URL</button>
+          <button 
+            className='bg-custom-gradient text-white rounded-md px-3 py-2'
+            onClick={() => setShortenPopup(true)}
+            >
+              Shorten a new URL
+          </button>
         </div>
       </div>
       )}
+      <ShortenPopup
+        open={shortenPopup}
+        setOpen={setShortenPopup}
+        refetch={refetch}
+      />
     </div>
   )
 }

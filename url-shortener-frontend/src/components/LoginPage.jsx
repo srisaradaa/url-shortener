@@ -32,8 +32,10 @@ function LoginPage() {
         "/api/auth/public/login",
         data
       );
+      console.log("Full response:", response);
+      console.log("response.token:", response.token);
+      console.log("Type:", typeof response.token);
       localStorage.setItem("JWT_TOKEN", JSON.stringify(response.token));
-      console.log(response.token);
       setToken(response.token);
       toast.success("Login Successful!");
       reset();
